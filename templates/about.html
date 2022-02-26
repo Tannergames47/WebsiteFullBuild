@@ -1,13 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content%}
+<h1>{{name}}, You should see great locations!</h1>
 
-<h1>Everyone should be able to find and create beautiful images!</h1>
+<br>
 
-<p>We'll show you where to find those beautiful locations, and how to process the images and create beautiful works of
-    art. The only thing we ask in return: Keep Them Beautiful</p>
 
-<p>cameratuts.com</p>
+<h3>Every Season</h3>
+<ul>
+    {% for i in seasons%}
+    <li>{{i}}</li>
+    {% endfor %}
+</ul>
+
+{% if 'Spring' in seasons %}
+<p>Best Spring Locations</p>
+{% else %}
+<p>No Spring Locations</p>
+{% endif %}
+
+
+
 
 
 {% endblock %}
+
+<!-- 
+<h1>Everyone should be able to find and create beautiful images!</h1>
+
+    <p>We'll show you where to find those beautiful locations, and how to process the images and create beautiful works
+        of
+        art. The only thing we ask in return: Keep Them Beautiful</p>
+
+    <p>cameratuts.com</p> -->

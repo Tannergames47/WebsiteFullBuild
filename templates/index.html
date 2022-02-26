@@ -1,13 +1,28 @@
 {% extends 'base.html' %}
-
 {% block content%}
 
-<h1 class="display-1">Welcome</h1>
-<div class="jumbotron">
-    <p>Welcome to the site.</p>
-    <p>Wanna sign up for an account?</p>
 
+{% if user_logged_in %}
+<div class="jumbotron">
+    <h1>Welcome back {{name}}</h1>
 </div>
+{% else %}
+<h1>Welcome to Camera Tuts!</h1>
+<p>Let's make you're next photography trip a success!</p>
+<div class="jumbotron">
+    <form action="{{url_for('report')}}">
+        <label for="username">Username</label>
+        <input class="user_input" type="text" name="username" id="" placeholder="Username">
+        <br>
+        <label for="password">Password</label>
+        <input class="pass_input" type="password" name="password" id="" placeholder="Password">
+        <br>
+        <input class="sub_input" type="submit" name="sub_button" id="">
+        <br>
+        <a href="{{url_for('signup')}}">Sign Up</a>
+    </form>
+</div>
+{% endif %}
 
 
 
